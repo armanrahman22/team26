@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: minecraft-deployment-pod
+  labels:
+    app: minecraft-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: minecraft-deployment-app
+    spec:
+      containers:
+      - name: minecraft-container
+        image: openhack/minecraft-server:2.0
+        env:
+        - name: EULA
+          value: "TRUE"
+        ports:
+        - containerPort: 25565

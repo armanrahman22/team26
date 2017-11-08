@@ -16,8 +16,7 @@ spec:
         image: openhack/minecraft-server:2.0
         env:
         - name: EULA
-          value: "TRUE"
+        value: "TRUE"
         ports:
         - containerPort: 25565
         - containerPort: 25575
-        

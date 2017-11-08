@@ -1,22 +1,38 @@
+--- 
 apiVersion: extensions/v1beta1
 kind: Deployment
-metadata:
-  name: minecraft-deployment-pod
-  labels:
+metadata: 
+  labels: 
     app: minecraft-deployment
-spec:
+  name: minecraft-deployment-pod
+spec: 
   replicas: 1
-  template:
-    metadata:
-      labels:
+  template: 
+    metadata: 
+      labels: 
         app: minecraft-deployment-app
-    spec:
-      containers:
-      - name: minecraft-container
-        image: openhack/minecraft-server:2.0
-        env:
-        - name: EULA
-          value: "TRUE"
-        ports:
-        - containerPort: 25565
-        - containerPort: 25575
+    spec: 
+      containers: 
+        - 
+          env: 
+            - 
+              name: EULA
+              value: "TRUE"
+          image: "openhack/minecraft-server:2.0"
+          name: minecraft-container
+          ports: 
+            - 
+              containerPort: 25565
+            - 
+              containerPort: 25575
+          volumeMounts: 
+            - 
+              mountPath: /mnt/azure
+              name: azure
+volumes: 
+  - 
+    azureFile: 
+      readOnly: false
+      secretName: azure-secret
+      shareName: mcdata
+    name: azure

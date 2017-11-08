@@ -13,5 +13,5 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: mcdata
       readOnly: false

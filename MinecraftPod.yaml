@@ -27,7 +27,7 @@ spec:
               containerPort: 25575
           volumeMounts: 
             - 
-              mountPath: /mnt/azure
+              mountPath: /data
               name: azure
 volumes: 
   - 

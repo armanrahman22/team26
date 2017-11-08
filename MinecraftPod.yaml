@@ -19,3 +19,5 @@ spec:
           value: "TRUE"
         ports:
         - containerPort: 25565
+        - containerPort: 25575
+        
